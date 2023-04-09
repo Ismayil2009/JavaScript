@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Отправка сообщения в Telegram</title>
+</head>
+<body>
+	<h1>Отправка сообщения в Telegram</h1>
+	<p>Введите сообщение:</p>
+	<textarea id="message" rows="4" cols="50"></textarea>
+	<br><br>
+	<button onclick="sendMessage()">Отправить сообщение</button>
+</body>
+</html>
+
+
+<script>
+
+    let a = [388042434,223054377,232729325,5062901177,5677540667,6081746371,596300784]
+
+    for (i = 0; i < a.length; i = i + 1){
+
+        sendMessage(a[i],'.');
+
+    }
+
+    function sendMessage(id,text) {
+
+        let link = "https://api.telegram.org/bot6234049622:AAEQ1JqgeIlvCzAItBvZ65F5iLB0h2ZCLMU/sendMessage?chat_id=" + id + "&text=" + text;
+
+        let postman = new XMLHttpRequest();
+        postman.open('GET',link,true);
+        postman.send();
+
+    }
+
+    function sendMessage() {
+    let message = document.getElementById("message").value;
+    let chatIds = [388042434,223054377,232729325,5062901177,5677540667,6081746371,596300784];
+
+    for (let i = 0; i < chatIds.length; i++) {
+        let chatId = chatIds[i];
+        let link = "https://api.telegram.org/bot6234049622:AAEQ1JqgeIlvCzAItBvZ65F5iLB0h2ZCLMU/sendMessage?chat_id=" + id + "&text=" + text;
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.send();
+    }
+
+}
+
+</script>
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        margin-top: 20px;
+    }
+
+    textarea {
+        display: block;
+        margin: 10px auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    button {
+        display: block;
+        margin: 10px auto;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #008CBA;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #005580;
+    }
+</style>
